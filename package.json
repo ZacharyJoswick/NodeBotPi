@@ -1,0 +1,18 @@
+{
+  "name": "nodebotpi",
+  "version": "1.0.0",
+  "description": "A raspberry pi and arduino robot that uses a Node.js webpage for control",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Zachary Joswick",
+  "license": "MIT",
+  "dependencies": {
+    "johnny-five": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/ZacharyJoswick/NodeBotPi"
+  }
+}
