@@ -8,3 +8,8 @@ services:
       context: ./
       dockerfile: camera.Dockerfile
     privileged: true
+
+  control:
+    build: 
+      context: ./
+      dockerfile: control.Dockerfile
