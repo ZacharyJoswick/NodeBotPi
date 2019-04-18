@@ -3,6 +3,8 @@ FROM raspbian/jessie
 
 RUN apt-get update
 
+RUN apt-get install -y libpaper1
+
 RUN apt-get install -y libjpeg-dev libtiff-dev libdirectfb-dev 
 
 RUN apt-get install -y cmake  g++ git \
