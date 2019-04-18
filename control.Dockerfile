@@ -1,5 +1,5 @@
-FROM arm32v7/node
-#FROM resin/rpi-raspbian:jessie
+# FROM arm32v7/node
+FROM resin/rpi-raspbian:jessie
 
 RUN mkdir -p /NodeBotPi
 

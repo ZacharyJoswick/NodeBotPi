@@ -1,5 +1,5 @@
-FROM arm32v7/gcc
-#FROM resin/rpi-raspbian:jessie
+# FROM arm32v7/gcc
+FROM resin/rpi-raspbian:jessie
 
 RUN apt-get update && apt-get install -y cmake libjpeg8-turbo-dev g++ git libraspberrypi-bin
 
