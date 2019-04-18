@@ -1,6 +1,6 @@
 # FROM arm32v7/gcc
 #FROM raspbian/jessie
-FROM mohaseeb/raspberrypi3-python-opencv
+FROM demosense/raspberrypi3-opencv
 
 RUN apt-get update && apt-get install libraspberrypi-bin
 
