@@ -1,6 +1,6 @@
 # FROM arm32v7/gcc
 #FROM raspbian/jessie
-FROM chunliu/docker-opencv
+FROM mohaseeb/raspberrypi3-python-opencv
 
 RUN apt-get update && apt-get install libraspberrypi-bin
 
