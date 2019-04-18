@@ -19,7 +19,7 @@ RUN cd \
 
 RUN git clone https://github.com/protobuf-c/protobuf-c.git /protoc
 
-RUN cd /protoc && 
+RUN cd /protoc && ./autogen.sh && ./configure && make && make install
 
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git /streamer
 
