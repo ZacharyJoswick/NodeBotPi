@@ -1,9 +1,12 @@
 # FROM arm32v7/gcc
 FROM raspbian/jessie
 
+RUN pip install numpy
+
 RUN apt-get update && apt-get install -y cmake libjpeg8-dev g++ git \
     libraspberrypi-bin pkg-config gphoto2 libgphoto2-6 libsdl2-dev \
-    autoconf automake libtool unzip 
+    autoconf automake libtool unzip libsdl-image1.2-dev libsdl-dev \
+    build-essential imagemagick libv4l-dev
 
 # RUN  cd \ 
 #     && git clone https://github.com/protocolbuffers/protobuf.git \
