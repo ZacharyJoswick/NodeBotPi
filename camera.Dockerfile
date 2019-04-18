@@ -3,7 +3,7 @@ FROM raspbian/jessie
 
 RUN apt-get update
 
-RUN apt-get install -y libjpeg-dev libtiff-dev libdirectfb-dev libjpeg8-dev
+RUN apt-get install -y libjpeg-dev libtiff-dev libdirectfb-dev 
 
 RUN apt-get install -y cmake  g++ git \
     libraspberrypi-bin gphoto2 libgphoto2-6 libsdl2-dev \
