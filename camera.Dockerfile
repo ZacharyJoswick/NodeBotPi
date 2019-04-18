@@ -16,17 +16,17 @@ RUN apt-get update && apt-get install -y cmake libjpeg8-dev g++ git \
 #     && make install \
 #     && ldconfig
 
-# RUN cd \
-#     && wget https://github.com/opencv/opencv/archive/3.2.0.zip \
-#     && unzip 3.2.0.zip \
-#     && cd opencv-3.2.0 \
-#     && mkdir build \
-#     && cd build \
-#     && cmake .. \
-#     && make \
-#     && make install \
-#     && cd \
-#     && rm 3.2.0.zip
+RUN cd \
+    && wget https://github.com/opencv/opencv/archive/3.2.0.zip \
+    && unzip 3.2.0.zip \
+    && cd opencv-3.2.0 \
+    && mkdir build \
+    && cd build \
+    && cmake .. \
+    && make \
+    && make install \
+    && cd \
+    && rm 3.2.0.zip
 
 # RUN git clone https://github.com/protobuf-c/protobuf-c.git /protoc
 
