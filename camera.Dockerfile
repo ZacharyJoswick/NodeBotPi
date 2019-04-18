@@ -5,6 +5,17 @@ RUN apt-get update && apt-get install -y cmake libjpeg8-dev g++ git \
     libraspberrypi-bin pkg-config gphoto2 libgphoto2-6 libsdl2-dev \
     autoconf automake libtool unzip 
 
+RUN  cd \ 
+    && git clone https://github.com/protocolbuffers/protobuf.git \
+    && cd protobuf \
+    && git submodule update --init --recursive \
+    &&  ./autogen.sh \
+    && ./configure \
+    && make \
+    && make check \
+    && make install \
+    && ldconfig
+
 RUN cd \
     && wget https://github.com/opencv/opencv/archive/3.2.0.zip \
     && unzip 3.2.0.zip \
