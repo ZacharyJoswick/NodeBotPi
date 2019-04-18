@@ -1,8 +1,12 @@
 # FROM arm32v7/gcc
 FROM raspbian/jessie
 
-RUN apt-get update && apt-get install -y cmake libjpeg8-dev g++ git \
-    libraspberrypi-bin pkg-config gphoto2 libgphoto2-6 libsdl2-dev \
+RUN apt-get update
+
+RUN apt-get install -y libjpeg-dev libtiff-dev libdirectfb-dev libjpeg8-dev
+
+RUN apt-get install -y cmake  g++ git \
+    libraspberrypi-bin gphoto2 libgphoto2-6 libsdl2-dev \
     autoconf automake libtool unzip libsdl-image1.2-dev libsdl-dev \
     build-essential imagemagick libv4l-dev python-numpy
 
