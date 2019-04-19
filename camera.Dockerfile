@@ -1,6 +1,6 @@
 FROM raspbian/jessie
 
-RUN apt-get update && apt-get install libraspberrypi-bin git
+RUN apt-get update && apt-get install -y libraspberrypi-bin git
 
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git /streamer
 
