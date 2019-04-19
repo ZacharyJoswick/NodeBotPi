@@ -1,7 +1,7 @@
 // client.js
 
 
-document.getElementById("streamimage").src= location.host + ":8080/?action=stream"
+// document.getElementById("streamimage").src= location.host + ":8080/?action=stream"
 
 var socket = io.connect(window.location.hostname + ':' + 80);
 socket.emit()
