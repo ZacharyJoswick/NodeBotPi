@@ -16,5 +16,6 @@ services:
     volumes: 
       - /dev/ttyUSB0:/dev/ttyUSB0
     privileged: true
-    ports:
-      - "80:80"
+    network_mode: host
+    # ports:
+    #   - "80:80"
