@@ -1,17 +1,6 @@
 // client.js
 
-// (function() {
-//     var socket = io.connect(window.location.hostname + ':' + 3000);
-//     function start(){
-//         socket.emit('start');
-//       }
-
-//       function stop(){
-//         socket.emit('stop');
-//       }
-// }());
-
-var socket = io.connect(window.location.hostname + ':' + 3000);
+var socket = io.connect(window.location.hostname + ':' + 80);
 socket.emit()
 function start(){
     socket.emit('start');
