@@ -1,7 +1,8 @@
-// client.js
+// NodeBotPi
+// Written by Zachary Joswick
+// Repository: https://github.com/ZacharyJoswick/NodeBotPi
 
-
-// document.getElementById("streamimage").src= location.host + ":8080/?action=stream"
+// This is the client side script for the NodeBotPi application
 
 var socket = io.connect(window.location.hostname + ':' + 80);
 socket.emit()

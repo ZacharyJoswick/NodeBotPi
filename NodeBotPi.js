@@ -1,3 +1,10 @@
+// NodeBotPi
+// Written by Zachary Joswick
+// Repository: https://github.com/ZacharyJoswick/NodeBotPi
+
+// This is the main control application for the NodeBotPi system
+// For more information see the main repository
+
 var five = require("johnny-five"),
   board = new five.Board({
     repl: false,
@@ -10,7 +17,7 @@ const server = require('http').createServer(app);
 const io = require('socket.io').listen(server);
 
 app.use(express.static(__dirname + '/public'));
-app.get('/', function(req, res, next) {
+app.get('/', function (req, res, next) {
   res.sendFile(__dirname + '/public/index.html')
 });
 
@@ -29,16 +36,11 @@ board.on("ready", function () {
 
   left_motor = new five.Motor({
     pins: {
-      pwm:11,
+      pwm: 11,
       dir: 10
     },
     invertPWM: true
   });
-
-  // board.repl.inject({
-  //   right_motor: right_motor,
-  //   left_motor: left_motor
-  // });
 
 });
 
@@ -56,23 +58,23 @@ var nMotPremixR; // Motor Right Premixed Output
 var nPivSpeed; // Pivot Speed
 var fPivScale; // Balance scale B/W drive and pivot
 
-io.on('connection', function(client) {
-  client.on('join', function(handshake) {
+io.on('connection', function (client) {
+  client.on('join', function (handshake) {
     console.log(handshake);
   });
 
-  client.on('start', function() {
+  client.on('start', function () {
     right_motor.forward(100);
     left_motor.forward(100);
   });
 
-  client.on('stop', function() {
+  client.on('stop', function () {
     // console.log("stop");
     right_motor.stop();
     left_motor.stop();
   });
 
-  client.on('move', function(data) {
+  client.on('move', function (data) {
     // console.log(data);
     //console.log("x:", data.instance.frontPosition.x, "y:", data.instance.frontPosition.y);
 
@@ -82,27 +84,27 @@ io.on('connection', function(client) {
     // Calculate Drive Turn output due to Joystick X input
     if (nJoyY >= 0) {
       // Forward
-      nMotPremixL = (nJoyX>=0)? 127.0 : (127.0 + nJoyX);
-      nMotPremixR = (nJoyX>=0)? (127.0 - nJoyX) : 127.0;
+      nMotPremixL = (nJoyX >= 0) ? 127.0 : (127.0 + nJoyX);
+      nMotPremixR = (nJoyX >= 0) ? (127.0 - nJoyX) : 127.0;
     } else {
       // Reverse
-      nMotPremixL = (nJoyX>=0)? (127.0 - nJoyX) : 127.0;
-      nMotPremixR = (nJoyX>=0)? 127.0 : (127.0 + nJoyX);
+      nMotPremixL = (nJoyX >= 0) ? (127.0 - nJoyX) : 127.0;
+      nMotPremixR = (nJoyX >= 0) ? 127.0 : (127.0 + nJoyX);
     }
 
     // Scale Drive output due to Joystick Y input (throttle)
-    nMotPremixL = nMotPremixL * nJoyY/128.0;
-    nMotPremixR = nMotPremixR * nJoyY/128.0;
+    nMotPremixL = nMotPremixL * nJoyY / 128.0;
+    nMotPremixR = nMotPremixR * nJoyY / 128.0;
 
     // Now calculate pivot amount
     // - Strength of pivot (nPivSpeed) based on Joystick X input
     // - Blending of pivot vs drive (fPivScale) based on Joystick Y input
     nPivSpeed = nJoyX;
-    fPivScale = (Math.abs(nJoyY)>fPivYLimit)? 0.0 : (1.0 - Math.abs(nJoyY)/fPivYLimit);
+    fPivScale = (Math.abs(nJoyY) > fPivYLimit) ? 0.0 : (1.0 - Math.abs(nJoyY) / fPivYLimit);
 
     // Calculate final mix of Drive and Pivot
-    nMotMixL = (1.0-fPivScale)*nMotPremixL + fPivScale*( nPivSpeed);
-    nMotMixR = (1.0-fPivScale)*nMotPremixR + fPivScale*(-nPivSpeed);
+    nMotMixL = (1.0 - fPivScale) * nMotPremixL + fPivScale * (nPivSpeed);
+    nMotMixR = (1.0 - fPivScale) * nMotPremixR + fPivScale * (-nPivSpeed);
 
     nMotMixL = nMotMixL * 1.8;
     nMotMixR = nMotMixR * 1.8;
@@ -118,8 +120,6 @@ io.on('connection', function(client) {
     } else {
       left_motor.reverse(nMotMixR);
     }
-
-    // console.log("R output:",  nMotMixR, "L output:",  nMotMixL)
   });
 });
 

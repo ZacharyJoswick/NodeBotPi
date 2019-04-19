@@ -1,4 +1,6 @@
-# FROM arm32v7/node
+# NodeBotPi control docker container
+# Installes nodejs and the application dependencies
+
 FROM raspbian/jessie
 
 RUN apt-get update && apt-get install -y curl make cmake g++ gcc
