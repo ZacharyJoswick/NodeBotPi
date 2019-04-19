@@ -34,10 +34,10 @@ board.on("ready", function () {
     invertPWM: true
   });
 
-  board.repl.inject({
-    right_motor: right_motor,
-    left_motor: left_motor
-  });
+  // board.repl.inject({
+  //   right_motor: right_motor,
+  //   left_motor: left_motor
+  // });
 
 });
 
