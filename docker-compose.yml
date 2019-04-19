@@ -15,3 +15,4 @@ services:
       dockerfile: control.Dockerfile
     volumes: 
       - /dev/ttyUSB0:/dev/ttyUSB0
+    privileged: true
