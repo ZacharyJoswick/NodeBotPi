@@ -67,7 +67,7 @@ io.on('connection', function(client) {
   });
 
   client.on('stop', function() {
-    console.log("stop");
+    // console.log("stop");
     right_motor.stop();
     left_motor.stop();
   });
