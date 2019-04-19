@@ -5,7 +5,7 @@ services:
   # Camera streaming server
   camera:
     build: 
-      context: /
+      context: ./
       dockerfile: camera.Dockerfile
     privileged: true
     network_mode: host
