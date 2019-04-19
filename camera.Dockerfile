@@ -12,7 +12,7 @@ RUN make && make install
 
 ENV LD_LIBRARY_PATH /streamer/mjpg-streamer-experimental
 
-COPY ./input_raspicam.so .
+# COPY ./input_raspicam.so .
 
 CMD [ "./mjpg_streamer", "-o", '"output_http.so -w ./www"', "-i", '"input_raspicam.so"' ]
 
