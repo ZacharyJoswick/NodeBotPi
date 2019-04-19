@@ -2,6 +2,8 @@ FROM raspbian/jessie
 
 RUN apt-get update && apt-get install -y libraspberrypi-bin git make cmake
 
+RUN apt-get install -y libjpeg-dev
+
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git /streamer
 
 WORKDIR /streamer/mjpg-streamer-experimental
