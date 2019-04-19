@@ -124,5 +124,5 @@ io.on('connection', function(client) {
 
 const port = process.env.PORT || 80;
 
-server.listen(port, '0.0.0.0');
+server.listen(port);
 console.log(`Server listening on http://localhost:${port}`);
