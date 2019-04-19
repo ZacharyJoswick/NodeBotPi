@@ -119,7 +119,7 @@ io.on('connection', function(client) {
       left_motor.reverse(nMotMixR);
     }
 
-    console.log("R output:",  nMotMixR, "L output:",  nMotMixL)
+    // console.log("R output:",  nMotMixR, "L output:",  nMotMixL)
   });
 });
 
