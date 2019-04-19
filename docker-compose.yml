@@ -3,11 +3,11 @@ version: "3.7"
 services:
 
   #Camera streaming server
-  camera:
-    build: 
-      context: ./
-      dockerfile: camera.Dockerfile
-    privileged: true
+  # camera:
+  #   build: 
+  #     context: ./
+  #     dockerfile: camera.Dockerfile
+  #   privileged: true
 
   control:
     build: 
