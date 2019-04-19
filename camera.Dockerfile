@@ -4,7 +4,7 @@ RUN apt-get update && apt-get install -y libraspberrypi-bin git make cmake libjp
 
 RUN apt-get install -y subversion 
 
-RUN svn co https://github.com/raspberrypi/firmware/tree/master/opt/vc/include /opt/vc/include
+RUN svn co https://github.com/raspberrypi/firmware/trunk/opt/vc/include /opt/vc/include
 
 RUN git clone https://github.com/jacksonliam/mjpg-streamer.git /streamer
 
