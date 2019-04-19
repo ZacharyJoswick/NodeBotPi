@@ -1,5 +1,6 @@
 var five = require("johnny-five"),
   board = new five.Board({
+    repl: false,
     port: "/dev/ttyUSB0"
   });
 
